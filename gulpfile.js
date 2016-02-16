@@ -16,6 +16,14 @@ gulp.task('sass', function() {
   }));
 });
 
+gulp.task('src', function() {
+  return gulp.src('app/**/*.html')
+    .pipe(gulp.dest('public'))
+    .pipe(browserSync.reload({
+    stream: true
+  }));
+});
+
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
@@ -24,7 +32,7 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'browserify'], function(){
+gulp.task('watch', ['browserSync', 'sass', 'browserify', 'src'], function(){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('public/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', ['browserify']);

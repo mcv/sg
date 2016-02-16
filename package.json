@@ -1,0 +1,29 @@
+{
+  "name": "sg",
+  "version": "0.0.0",
+  "description": "",
+  "main": "sg.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcv/sg.git"
+  },
+  "author": "Martijn Vos",
+  "license": "copyright 2016",
+  "bugs": {
+    "url": "https://github.com/mcv/sg/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-sass": "~2.2.0",
+    "browser-sync": "~2.11.1",
+    "gulp-connect": "~2.3.1",
+    "vinyl-source-stream": "~1.1.0",
+    "browserify": "~13.0.0"
+  },
+  "dependencies": {
+    "angular": "~1.5.0"
+  }
+}
