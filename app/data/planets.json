@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "planet A",
+    "x": 85,
+    "y": 233,
+    "colony": {
+      "pop": 2345678,
+      "factories": 5678,
+      "mines": 345,
+      "farms": 1234,
+      "labs": 33
+    }
+  },
+  {
+    "id": 2,
+    "name": "planet B",
+    "x": 200,
+    "y": 60
+  },
+  {
+    "id": 3,
+    "name": "planet C",
+    "x": 44,
+    "y": 123,
+    "colony": {
+      "pop": 2345678,
+      "factories": 5678,
+      "mines": 345,
+      "farms": 1234,
+      "labs": 33
+    }
+  },
+  {
+    "id": 4,
+    "name": "planet D",
+    "x": 85,
+    "y": 333,
+    "colony": {
+      "pop": 45678,
+      "factories": 678,
+      "mines": 45,
+      "farms": 234,
+      "labs": 0
+    }
+  },
+  {
+    "id": 5,
+    "name": "planet E",
+    "x": 385,
+    "y": 283
+  }
+]

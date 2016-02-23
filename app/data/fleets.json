@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "fleet A",
+    "x": 30,
+    "y": 33,
+    "ships": 15,
+    "waypoints": [
+      {"x": 30, "y": 5, "speed": 2},
+      {"x": 45, "y": 83, "speed": 4}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "fleet B",
+    "x": 310,
+    "y": 250,
+    "ships": 1,
+    "waypoints": [
+      {"x": 280, "y": 250, "speed": 9},
+      {"x": 325, "y": 199, "speed": 4}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "fleet C",
+    "x": 130,
+    "y": 133,
+    "ships": 15,
+    "speed": 2,
+    "waypoints": [
+      {"x": 220, "y": 123, "speed": 5},
+      {"x": 345, "y": 99, "speed": 6}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "fleet D",
+    "x": 200,
+    "y": 350,
+    "ships": 12
+  }
+]
