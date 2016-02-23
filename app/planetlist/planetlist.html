@@ -1,0 +1,36 @@
+<div id="planets">
+
+  Search: <input ng-model="query">
+  <br/>
+  Sort by:
+  <select ng-model="planetsOrder">
+    <option value="name">Alphabetical</option>
+    <option value="id" ng-selected="true">ID</option>
+    <option value="colony.pop">Population</option>
+  </select>
+
+  <table class="planetsTable">
+    <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>coords</th>
+    <th>pop</th>
+    <th>factories</th>
+    <th>mines</th>
+    <th>farms</th>
+    <th>labs</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="planet in planets | filter:query | orderBy:planetsOrder" ng-click="console.log('click');selectPlanet(planet);">
+      <td>{{planet.id}}</td>
+      <td>{{planet.name}}</td>
+      <td>( {{planet.x}}, {{planet.y}} )</td>
+      <td>{{planet.colony.pop}}</td>
+      <td>{{planet.colony.factories}}</td>
+      <td>{{planet.colony.mines}}</td>
+      <td>{{planet.colony.farms}}</td>
+      <td>{{planet.colony.labs}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

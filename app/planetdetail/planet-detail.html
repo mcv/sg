@@ -1,0 +1,11 @@
+<div class="detail" id="planet-detail" ng-show="selection.current.planet">
+  <label>planet id: {{selection.planet.id}}</label>
+  <label>name: <input ng-model="selection.planet.name"/></label>
+  <label>coords: ( {{selection.planet.x}}, {{selection.planet.y}} )</label>
+  <div id="colony-detail" ng-hide="selection.planet.colony==null">
+    <label>factories: {{selection.planet.colony.factories}}</label>
+    <label>mines: {{selection.planet.colony.mines}}</label>
+    <label>farms: {{selection.planet.colony.farms}}</label>
+    <label>labs: {{selection.planet.colony.labs}}</label>
+  </div>
+</div>

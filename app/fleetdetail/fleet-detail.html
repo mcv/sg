@@ -1,0 +1,13 @@
+<div class="detail" id="fleet-detail" ng-show="selection.current.fleet">
+  <label>fleet id: {{selection.fleet.id}}</label>
+  <label>name: <input ng-model="selection.fleet.name"/></label>
+  <label>coords: ( {{selection.fleet.x}}, {{selection.fleet.y}} )</label>
+  <label>ships: {{selection.fleet.ships}}</label>
+  <ul class="waypointlist">
+    <li ng-repeat="wp in selection.fleet.waypoints">
+      ( {{wp.x}}, {{wp.y}} ) speed: {{wp.speed}}
+    </li>
+  </ul>
+  <button ng-click="setMode('addWaypoint')" ng-hide="mode=='addWaypoint'">Add Waypoint</button>
+  <button ng-click="setMode('std');" ng-show="mode=='addWaypoint'">Cancel</button>
+</div>
