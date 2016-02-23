@@ -42,7 +42,7 @@ gulp.task('connect', function () {
   connect.server({
     root: 'app',
     port: 4000
-  })
+  });
 });
 
 gulp.task('browserify', function() {
@@ -55,5 +55,6 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('./public/js/'))
     .pipe(browserSync.reload({
       stream: true
-  }));
+    })
+  );
 });
