@@ -47,7 +47,7 @@ gulp.task('connect', function () {
 
 gulp.task('browserify', function() {
   // Grabs the app.js file
-  return browserify('./app/js/app.js')
+  return browserify('./app/app.js')
     // bundles it and creates a file called main.js
     .bundle()
     .pipe(source('main.js'))
