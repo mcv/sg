@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="app">
+<!doctype html>
+<html lang="en" ng-app="spacegame" ng-controller="MainController">
 <head>
-  <meta charset="UTF-8">
-  <title>My App</title>
+  <meta charset="utf-8">
+  <title>Spacegame</title>
+  <link rel="stylesheet" href="css/style.css">
   <script src="/js/main.js"></script>
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
 </head>
 <body>
-<div ng-controller="MainController">
-  <h1>{{ message }}</h1>
+
+<nav class="{{active}}" ng-click="$event.preventDefault()">
+
+  <!-- When a link in the menu is clicked, we set the active variable -->
+
+  <a href="#" class="home" ng-click="active='overview'">Overview</a>
+  <!--<a href="#" class="planets" ng-click="active='planets'">Planets</a>-->
+  <!--<a href="#" class="planet-detail" ng-click="active='planet-detail'">Planet Detail</a>-->
+  <!--<a href="#" class="fleets" ng-click="active='fleets'">Fleets</a>-->
+  <!--<a href="#" class="fleet-detail" ng-click="active='fleet-detail'">Fleet Detail</a>-->
+</nav>
+
+<div>
+  <ng-include src="'main/main.html'"></ng-include>
+
 </div>
+
 </body>
 </html>
