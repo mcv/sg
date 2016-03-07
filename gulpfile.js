@@ -34,15 +34,8 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', ['browserSync', 'sass', 'browserify', 'src'], function(){
   gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('public/*.html', ['src']);
-  gulp.watch('app/js/**/*.js', ['browserify']);
-});
-
-gulp.task('connect', function () {
-  connect.server({
-    root: 'app',
-    port: 4000
-  });
+  gulp.watch('app/**/*.html', ['src']);
+  gulp.watch('app/**/*.js', ['browserify']);
 });
 
 gulp.task('browserify', function() {
