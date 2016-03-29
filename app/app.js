@@ -1,7 +1,7 @@
 require('angular');
 
 
-angular.module('spacegame', []);
+angular.module('spacegame', ['ngResource']);
 
 require('./main/controller.js');
 

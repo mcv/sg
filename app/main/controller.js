@@ -5,7 +5,7 @@ require('../planet/planetDataService.js');
 require('../fleet/fleetDataService.js');
 
 
-angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'Fleet', function($scope, Planet, Fleet) {
+angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', function($scope, Planet, Fleet) {
   $scope.planets = [];
   $scope.fleets = [];
   $scope.selection = {
@@ -18,7 +18,6 @@ angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'F
     height: 400,
     width: 400
   };
-  console.log("gameconfig: ",gameconfig);
   $scope.mousecoords = {
     x: 0,
     y: 0
