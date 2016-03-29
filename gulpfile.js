@@ -3,8 +3,8 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 var connect = require('gulp-connect');
 
-var browserify = require('browserify')
-var source = require('vinyl-source-stream')
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
 
 gulp.task('sass', function() {
@@ -32,12 +32,6 @@ gulp.task('browserSync', function() {
   });
 });
 
-gulp.task('watch', ['browserSync', 'sass', 'browserify', 'src'], function(){
-  gulp.watch('app/scss/**/*.scss', ['sass']);
-  gulp.watch('app/**/*.html', ['src']);
-  gulp.watch('app/**/*.js', ['browserify']);
-});
-
 gulp.task('browserify', function() {
   // Grabs the app.js file
   return browserify('./app/app.js')
@@ -50,4 +44,10 @@ gulp.task('browserify', function() {
       stream: true
     })
   );
+});
+
+gulp.task('watch', ['browserSync', 'sass', 'browserify', 'src'], function(){
+  gulp.watch('app/scss/**/*.scss', ['sass']);
+  gulp.watch('app/**/*.html', ['src']);
+  gulp.watch('app/**/*.js', ['browserify']);
 });
