@@ -1,6 +1,8 @@
 'use strict';
 
-/* Controllers */
+require('../app.js');
+require('../planet/planetDataService.js');
+require('../fleet/fleetDataService.js');
 
 
 angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'Fleet', function($scope, Planet, Fleet) {
