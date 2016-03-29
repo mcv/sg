@@ -3,43 +3,24 @@
 require('../app.js');
 require('../planet/planetDataService.js');
 require('../fleet/fleetDataService.js');
+require('../game/gameConfigService.js');
 
 
-angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', function($scope, planetData, fleetData) {
+angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', 'gameConfig', function($scope, planetData, fleetData, gameConfig) {
   $scope.planets = planetData;
   $scope.fleets = fleetData;
+  $scope.gameConfig = gameConfig;
   $scope.selection = {
     current : null,
     prev : null,
     fleet : null,
     planet : null
   };
-  $scope.gameconfig = {
-    height: 400,
-    width: 400
-  };
   $scope.mousecoords = {
     x: 0,
     y: 0
   };
   $scope.mode = 'std';
-
-  $scope.detailView = function() {
-//    console.log($scope.selection.current);
-    if ($scope.selection.current === null) {
-      return "empty";
-    }
-    if ($scope.selection.current.fleet) {
-      return "fleet-detail";
-    }
-    else if ($scope.selection.current.planet) {
-      return "planet-detail";
-    }
-    else {
-      return "empty";
-    }
-
-  };
 
   $scope.setMode = function(mode) {
     $scope.mode = mode;
