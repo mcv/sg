@@ -13,7 +13,7 @@ angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'F
     prev : null,
     fleet : null,
     planet : null
-  }
+  };
   $scope.gameconfig = {
     height: 400,
     width: 400
@@ -40,11 +40,11 @@ angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'F
       return "empty";
     }
 
-  }
+  };
 
   $scope.setMode = function(mode) {
     $scope.mode = mode;
-  }
+  };
 
   $scope.selectPlanet = function(planet) {
     console.log("selectPlanet 1: ",$scope.selection);
@@ -53,14 +53,14 @@ angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'F
     $scope.selection.prev = $scope.selection.current;
     $scope.selection.current = planet;
     console.log("selectPlanet 2: ",$scope.selection);
-  }
+  };
 
   $scope.selectFleet = function(fleet) {
     fleet.fleet = true; // hack to let object know what it is
     $scope.selection.fleet = fleet;
     $scope.selection.prev = $scope.selection.current;
     $scope.selection.current = fleet;
-  }
+  };
 
   $scope.addWaypoint = function(coords) {
     if ($scope.mode == "addWaypoint" && $scope.selection.current.fleet) {
@@ -73,11 +73,11 @@ angular.module('spacegame').controller('MainController', ['$scope', 'Planet', 'F
         speed: 5
       });
     }
-  }
+  };
 
   $scope.setMode = function(mode) {
     $scope.mode = mode;
-  }
+  };
 
   $scope.planets = Planet.query();
   $scope.fleets = Fleet.query();
