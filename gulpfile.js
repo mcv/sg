@@ -17,7 +17,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('src', function() {
-  return gulp.src('app/**/*.html')
+  return gulp.src(['app/**/*.html', 'app/**/*.json'])
     .pipe(gulp.dest('public'))
     .pipe(browserSync.reload({
     stream: true

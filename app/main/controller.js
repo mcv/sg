@@ -5,9 +5,9 @@ require('../planet/planetDataService.js');
 require('../fleet/fleetDataService.js');
 
 
-angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', function($scope, Planet, Fleet) {
-  $scope.planets = [];
-  $scope.fleets = [];
+angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', function($scope, planetData, fleetData) {
+  $scope.planets = planetData;
+  $scope.fleets = fleetData;
   $scope.selection = {
     current : null,
     prev : null,
@@ -77,8 +77,5 @@ angular.module('spacegame').controller('MainController', ['$scope', 'planetData'
   $scope.setMode = function(mode) {
     $scope.mode = mode;
   };
-
-  $scope.planets = Planet.query();
-  $scope.fleets = Fleet.query();
 
 }]);
