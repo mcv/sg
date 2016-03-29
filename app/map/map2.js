@@ -1,9 +1,9 @@
 
-angular.module('spacegame').directive("sgMap2", ['Planet', 'Fleet', function() {
+angular.module('spacegame').directive("sgMap2", [function() {
   return {
     restrict: 'AE',
-    templateUrl: "js/directives/map2.html",
-//    template: '<div id="canvas" class="canvas" style="background-color: #000000; width: {{gameconfig.width}}px; height: {{gameconfig.height}}px"></div>',
+//    templateUrl: "map/map2.html",
+    templateUrl: "map/map2.html",
 
     controller: function($scope) {
 
@@ -14,7 +14,7 @@ angular.module('spacegame').directive("sgMap2", ['Planet', 'Fleet', function() {
         selectedfleetcolour: "#f0f",
         selectedplanetcolour: "#090",
         waypointcolour: "#c0c"
-      }
+      };
 
       $scope.cfg = $scope.mapconfig;
 
@@ -32,7 +32,7 @@ angular.module('spacegame').directive("sgMap2", ['Planet', 'Fleet', function() {
           wpstring = wpstring + "L"+wp.x+","+wp.y;
         });
         return wpstring;
-      }
+      };
 
       $scope.fleetRotate = function(fleet) {
         if (fleet.waypoints != null && fleet.waypoints[0]!= null) {
@@ -41,12 +41,12 @@ angular.module('spacegame').directive("sgMap2", ['Planet', 'Fleet', function() {
         else {
           return 0;
         }
-      }
+      };
       $scope.rotate = function(origin, direction) {
         var rad = Math.atan2(direction.y - origin.y, direction.x - origin.x);
         var deg = rad*180/Math.PI - 90; // correction for our fleets pointing down rather than to the right
         return deg;
-      }
+      };
 
     }
   }
