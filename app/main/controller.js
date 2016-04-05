@@ -5,7 +5,6 @@ require('../planet/planetDataService.js');
 require('../fleet/fleetDataService.js');
 require('../game/gameConfigService.js');
 
-
 angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', 'gameConfig', function($scope, planetData, fleetData, gameConfig) {
   $scope.planets = planetData;
   $scope.fleets = fleetData;
@@ -25,6 +24,22 @@ angular.module('spacegame').controller('MainController', ['$scope', 'planetData'
   $scope.setMode = function(mode) {
     $scope.mode = mode;
   };
+
+  //@todo: put this in a general game config for both fleet and planet
+  $scope.planetsOrderOptions = [
+    {name: "ID", value: "id"},
+    {name: "Alphabetical", value: "name"},
+    {name: "Population", value: "colony.pop"}
+  ];
+
+  $scope.planetsOrder = $scope.planetsOrderOptions[0].value;
+
+  $scope.fleetsOrderOptions = [
+    {name: "ID", value: "id"},
+    {name: "Alphabetical", value: "name"}
+  ];
+
+  $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
 
   $scope.selectPlanet = function(planet) {
     console.log("selectPlanet 1: ",$scope.selection);

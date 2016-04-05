@@ -3,10 +3,7 @@ fleet-detail.html<div id="fleets">
   Search: <input ng-model="query">
   <br/>
   Sort by:
-  <select ng-model="fleetsOrder">
-    <option value="name">Alphabetical</option>
-    <option value="id" ng-selected="true">ID</option>
-  </select>
+  <select ng-model='fleetsOrder' required ng-options='option.value as option.name for option in fleetsOrderOptions'></select>
 
   <table class="fleetsTable">
     <thead>

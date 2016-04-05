@@ -3,11 +3,13 @@
   Search: <input ng-model="query">
   <br/>
   Sort by:
-  <select ng-model="planetsOrder">
-    <option value="name">Alphabetical</option>
-    <option value="id" ng-selected="true">ID</option>
-    <option value="colony.pop">Population</option>
-  </select>
+  <!--<select ng-model="form.planetsOrder">-->
+    <!--<option value="name">Alphabetical</option>-->
+    <!--<option value="id" ng-selected="true">ID</option>-->
+    <!--<option value="colony.pop">Population</option>-->
+  <!--</select>-->
+  <select ng-model='planetsOrder' required ng-options='option.value as option.name for option in planetsOrderOptions'></select>
+
 
   <table class="planetsTable">
     <thead>
