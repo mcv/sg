@@ -42,12 +42,10 @@ angular.module('spacegame').controller('MainController', ['$scope', 'planetData'
   $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
 
   $scope.selectPlanet = function(planet) {
-    console.log("selectPlanet 1: ",$scope.selection);
     planet.planet = true; // hack to let object know what it is
     $scope.selection.planet = planet;
     $scope.selection.prev = $scope.selection.current;
     $scope.selection.current = planet;
-    console.log("selectPlanet 2: ",$scope.selection);
   };
 
   $scope.selectFleet = function(fleet) {
