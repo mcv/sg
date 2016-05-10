@@ -48,6 +48,50 @@ angular.module('spacegame').directive("sgMap2", [function() {
         return deg;
       };
 
+
+      $scope.$watch('selection.current', function(selected, oldselected) {
+//        console.log("selection changed");
+        if (selected !== oldselected && selected !== null) {
+          if (selected.fleet) {
+            $scope.$watchCollection('selected.waypoints', function() {
+              $scope.selection.current.shape.remove();
+              $scope.drawFleet(selected);
+            });
+            selected.shape.attr({"fill": $scope.mapconfig.selectedfleetcolour, "stroke": $scope.mapconfig.selectedfleetcolour});
+          }
+          else if (selected.planet) {
+            selected.shape.attr({"fill": $scope.mapconfig.selectedplanetcolour, "stroke": $scope.mapconfig.selectedplanetcolour});
+          }
+          if (oldselected !== null) {
+            if (oldselected.fleet) {
+              oldselected.shape.attr({"fill": $scope.mapconfig.fleetcolour, "stroke": $scope.mapconfig.fleetcolour});
+            }
+            else if (oldselected.planet) {
+              oldselected.shape.attr({"fill": $scope.mapconfig.planetcolour, "stroke": $scope.mapconfig.planetcolour});
+            }
+          }
+        }
+      })
+
+      $scope.$watch('mode', function(mode, oldmode) {
+        if (mode == 'addWaypoint') {
+          iElement.on('mousemove', function($event) {
+            $scope.mousecoords.x = $event.offsetX;
+            $scope.mousecoords.y = $event.offsetY;
+            $scope.$apply();
+          })
+          iElement.on("click", function(event) {
+            $scope.addWaypoint({x: event.offsetX, y: event.offsetY});
+            $scope.setMode(oldmode);
+            $scope.$apply();
+          });
+        }
+        else if (oldmode == 'addWaypoint') {
+          iElement.off("mousemove click");
+        }
+      })
+
+
     }
   }
 }]);
