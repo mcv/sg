@@ -5,9 +5,9 @@ directive("speedWidget", [function() {
             fleet: '='
         },
         link: function(scope, element, attrs) {
-            console.log("fleet: ",fleet);
+            console.log("fleet: ",scope.fleet);
 
         },
-        templateUrl: speedWidget.html
+        templateUrl: "fleet/speedWidget.html"
     }
 }]);

@@ -1,5 +1,15 @@
 .testing {
   width: percentage(5/7);
 }
+.speedBar {
+  fill: red;
+  height: 21px;
+  transition: fill .3s ease;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+}
+.speedBar:hover {
+  fill: yellow;
+}
 
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
