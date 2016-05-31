@@ -10,4 +10,5 @@
   </ul>
   <button ng-click="setMode('addWaypoint')" ng-hide="mode=='addWaypoint'">Add Waypoint</button>
   <button ng-click="setMode('std');" ng-show="mode=='addWaypoint'">Cancel</button>
+  <speed-widget ng-show="mode=='addWaypoint'" fleet="selection.current"></speed-widget>
 </div>
