@@ -8,7 +8,7 @@
           ng-attr-d="{{waypointString(f)}}"></path>
     <path ng-repeat="f in fleets"
           fill="{{cfg.fleetcolour}}" stroke="{{cfg.fleetcolour}}"
-          ng-attr-d="{{'M'+f.x+','+f.y+'L'+(f.x-5)+','+f.y+',L'+f.x+','+(f.y+10)+'L'+(f.x+5)+','+f.y+'Z'}}"
+          ng-attr-d="{{drawFleetShape(f)}}"
           ng-attr-transform="rotate({{fleetRotate(f)}}, {{f.x}}, {{f.y}})"
           ng-click="selectFleet(f);"></path>
   </svg>
