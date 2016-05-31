@@ -57,9 +57,10 @@ angular.module('spacegame').controller('MainController', ['$scope', 'planetData'
 
   $scope.addWaypoint = function(coords) {
     if ($scope.mode == "addWaypoint" && $scope.selection.current.fleet) {
-      if ($scope.selection.current.waypoints === null) {
+      if ($scope.selection.current.waypoints === null || $scope.selection.current.waypoints === undefined ) {
         $scope.selection.current.waypoints = []
       }
+
       $scope.selection.current.waypoints.push({
         x: coords.x,
         y: coords.y,
@@ -71,5 +72,4 @@ angular.module('spacegame').controller('MainController', ['$scope', 'planetData'
   $scope.setMode = function(mode) {
     $scope.mode = mode;
   };
-
 }]);
