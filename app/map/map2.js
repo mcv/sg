@@ -2,7 +2,6 @@
 angular.module('spacegame').directive("sgMap2", [function() {
   return {
     restrict: 'AE',
-//    templateUrl: "map/map2.html",
     templateUrl: "map/map2.html",
 
     controller: function($scope) {
@@ -20,12 +19,6 @@ angular.module('spacegame').directive("sgMap2", [function() {
 
     },
     link: function ($scope, iElement, iAttrs, controller, transcludeFn) {
-      //
-//      console.log("link 2");
-//
-//      console.log("setting style: "+$scope.gameconfig.height);
-//      iElement.style = {height: $scope.gameconfig.height, width: $scope.gameconfig.width};
-
       $scope.drawFleetShape = function(fleet) {
         var fleetShape = 'M'+fleet.x+','+fleet.y+'L'+(fleet.x-5)+','+fleet.y+',L'+fleet.x+','+(fleet.y+10)+'L'+(fleet.x+5)+','+fleet.y+'Z';
 
@@ -48,6 +41,7 @@ angular.module('spacegame').directive("sgMap2", [function() {
           return 0;
         }
       };
+
       $scope.rotate = function(origin, direction) {
         var rad = Math.atan2(direction.y - origin.y, direction.x - origin.x);
         var deg = rad*180/Math.PI - 90; // correction for our fleets pointing down rather than to the right
@@ -61,6 +55,7 @@ angular.module('spacegame').directive("sgMap2", [function() {
             $scope.mousecoords.y = $event.offsetY;
             $scope.$apply();
           });
+
           iElement.on("click", function(event) {
             $scope.addWaypoint({x: event.offsetX, y: event.offsetY});
             $scope.setMode(oldmode);
