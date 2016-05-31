@@ -26,6 +26,12 @@ angular.module('spacegame').directive("sgMap2", [function() {
 //      console.log("setting style: "+$scope.gameconfig.height);
 //      iElement.style = {height: $scope.gameconfig.height, width: $scope.gameconfig.width};
 
+      $scope.drawFleetShape = function(fleet) {
+        var fleetShape = 'M'+fleet.x+','+fleet.y+'L'+(fleet.x-5)+','+fleet.y+',L'+fleet.x+','+(fleet.y+10)+'L'+(fleet.x+5)+','+fleet.y+'Z';
+
+        return fleetShape;
+      };
+
       $scope.waypointString = function(fleet) {
         var wpstring = "M"+fleet.x+","+fleet.y;
         angular.forEach(fleet.waypoints, function(wp) {
