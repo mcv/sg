@@ -5,76 +5,79 @@ require('../planet/planetDataService.js');
 require('../fleet/fleetDataService.js');
 require('../game/gameConfigService.js');
 
-angular.module('spacegame').controller('MainController', ['$scope', 'planetData', 'fleetData', 'gameConfig', function($scope, planetData, fleetData, gameConfig) {
-  $scope.planets = planetData;
-  $scope.fleets = fleetData;
-  $scope.gameConfig = gameConfig;
-  $scope.selection = {
-    current : null,
-    prev : null,
-    fleet : null,
-    planet : null
-  };
-  $scope.mousecoords = {
-    x: 0,
-    y: 0
-  };
-  $scope.mode = 'std';
+angular.module('spacegame')
+    .controller('MainController', ['$scope', 'planetData', 'fleetData', 'gameConfig', function ($scope, planetData, fleetData, gameConfig) {
+        $scope.planets = planetData;
+        $scope.fleets = fleetData;
+        $scope.gameConfig = gameConfig;
+        $scope.selection = {
+            current: null,
+            prev: null,
+            fleet: null,
+            planet: null
+        };
 
-  $scope.setMode = function(mode) {
-    $scope.mode = mode;
-  };
+        $scope.mousecoords = {
+            x: 0,
+            y: 0
+        };
 
-  //@todo: put this in a general game config for both fleet and planet
-  $scope.planetsOrderOptions = [
-    {name: "ID", value: "id"},
-    {name: "Alphabetical", value: "name"},
-    {name: "Population", value: "colony.pop"}
-  ];
+        $scope.mode = 'std';
 
-  $scope.planetsOrder = $scope.planetsOrderOptions[0].value;
+        $scope.setMode = function (mode) {
+            $scope.mode = mode;
+        };
 
-  $scope.fleetsOrderOptions = [
-    {name: "ID", value: "id"},
-    {name: "Alphabetical", value: "name"}
-  ];
+        //@todo: put this in a general game config for both fleet and planet
+        $scope.planetsOrderOptions = [
+            {name: "ID", value: "id"},
+            {name: "Alphabetical", value: "name"},
+            {name: "Population", value: "colony.pop"}
+        ];
 
-  $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
+        $scope.planetsOrder = $scope.planetsOrderOptions[0].value;
 
-  $scope.selectPlanet = function(planet) {
-    planet.planet = true; // hack to let object know what it is
-    $scope.selection.planet = planet;
-    $scope.selection.prev = $scope.selection.current;
-    $scope.selection.current = planet;
-  };
+        $scope.fleetsOrderOptions = [
+            {name: "ID", value: "id"},
+            {name: "Alphabetical", value: "name"}
+        ];
 
-  $scope.selectFleet = function(fleet) {
-    fleet.fleet = true; // hack to let object know what it is
-    $scope.selection.fleet = fleet;
-    $scope.selection.prev = $scope.selection.current;
-    $scope.selection.current = fleet;
-  };
+        $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
 
-  $scope.addWaypoint = function(coords) {
-    if ($scope.mode == "addWaypoint" && $scope.selection.current.fleet) {
-      if ($scope.selection.current.waypoints === null || $scope.selection.current.waypoints === undefined ) {
-        $scope.selection.current.waypoints = []
-      }
+        $scope.selectPlanet = function (planet) {
+            planet.planet = true; // hack to let object know what it is
+            $scope.selection.planet = planet;
+            $scope.selection.prev = $scope.selection.current;
+            $scope.selection.current = planet;
+        };
 
-      $scope.selection.current.waypoints.push({
-        x: coords.x,
-        y: coords.y,
-        speed: 5
-      });
-    }
-  };
+        $scope.selectFleet = function (fleet) {
+            fleet.fleet = true; // hack to let object know what it is
+            $scope.selection.fleet = fleet;
+            $scope.selection.prev = $scope.selection.current;
+            $scope.selection.current = fleet;
+        };
 
-  $scope.removeWaypoint = function(waypoint) {
-    var index = $scope.selection.current.waypoints.indexOf(waypoint);
-    $scope.selection.current.waypoints.splice(index, 1);
-  };
+        $scope.addWaypoint = function (coords) {
+            if ($scope.mode == "addWaypoint" && $scope.selection.current.fleet) {
+                if ($scope.selection.current.waypoints === null || $scope.selection.current.waypoints === undefined) {
+                    $scope.selection.current.waypoints = []
+                }
 
-  $scope.setMode = function(mode) {
-    $scope.mode = mode;
-  };
-}]);
+                $scope.selection.current.waypoints.push({
+                    x: coords.x,
+                    y: coords.y,
+                    speed: 5
+                });
+            }
+        };
+
+        $scope.removeWaypoint = function (waypoint) {
+            var index = $scope.selection.current.waypoints.indexOf(waypoint);
+            $scope.selection.current.waypoints.splice(index, 1);
+        };
+
+        $scope.setMode = function (mode) {
+            $scope.mode = mode;
+        };
+    }]);
