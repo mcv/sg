@@ -76,8 +76,4 @@ angular.module('spacegame')
             var index = $scope.selection.current.waypoints.indexOf(waypoint);
             $scope.selection.current.waypoints.splice(index, 1);
         };
-
-        $scope.setMode = function (mode) {
-            $scope.mode = mode;
-        };
     }]);

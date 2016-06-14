@@ -3,11 +3,13 @@
   <label>name: <input ng-model="selection.fleet.name"/></label>
   <label>coords: ( {{selection.fleet.x}}, {{selection.fleet.y}} )</label>
   <label>ships: {{selection.fleet.ships}}</label>
+
   <ul class="waypointlist">
     <li ng-repeat="wp in selection.fleet.waypoints" ng-click="showWaypointEdit = !showWaypointEdit">
       ( {{wp.x}}, {{wp.y}} ) speed: {{wp.speed}} <span ng-show="showWaypointEdit" ng-click="removeWaypoint(wp)">x</span>
     </li>
   </ul>
+
   <button ng-click="setMode('addWaypoint')" ng-hide="mode=='addWaypoint'">Add Waypoint</button>
   <button ng-click="setMode('std');" ng-show="mode=='addWaypoint'">Cancel</button>
   <speed-widget ng-show="mode=='addWaypoint'" fleet="selection.current"></speed-widget>
