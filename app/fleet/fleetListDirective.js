@@ -3,7 +3,6 @@ angular.module("spacegame")
         return {
             link: function (scope, element, attrs) {
                 console.log("foo");
-
             },
             templateUrl: fleetList.html
         }

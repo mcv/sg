@@ -16,10 +16,12 @@ angular.module('spacegame')
             fleet: null,
             planet: null
         };
+
         $scope.mousecoords = {
             x: 0,
             y: 0
         };
+
         $scope.mode = 'std';
 
         $scope.setMode = function (mode) {
@@ -43,17 +45,21 @@ angular.module('spacegame')
         $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
 
         $scope.selectPlanet = function (planet) {
-            planet.planet = true; // hack to let object know what it is
-            $scope.selection.planet = planet;
-            $scope.selection.prev = $scope.selection.current;
-            $scope.selection.current = planet;
+            if ($scope.mode != "addWaypoint") {
+                planet.planet = true; // hack to let object know what it is
+                $scope.selection.planet = planet;
+                $scope.selection.prev = $scope.selection.current;
+                $scope.selection.current = planet;
+            }
         };
 
         $scope.selectFleet = function (fleet) {
-            fleet.fleet = true; // hack to let object know what it is
-            $scope.selection.fleet = fleet;
-            $scope.selection.prev = $scope.selection.current;
-            $scope.selection.current = fleet;
+            if(!$scope.selection.fleet) {
+                fleet.fleet = true; // hack to let object know what it is
+                $scope.selection.fleet = fleet;
+                $scope.selection.prev = $scope.selection.current;
+                $scope.selection.current = fleet;
+            }
         };
 
         $scope.addWaypoint = function (coords) {
@@ -71,12 +77,7 @@ angular.module('spacegame')
         };
 
         $scope.removeWaypoint = function (waypoint) {
-            console.log(waypoint);
             var index = $scope.selection.current.waypoints.indexOf(waypoint);
             $scope.selection.current.waypoints.splice(index, 1);
-        };
-
-        $scope.setMode = function (mode) {
-            $scope.mode = mode;
         };
     }]);
