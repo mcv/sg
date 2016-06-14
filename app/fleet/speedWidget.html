@@ -1,7 +1,7 @@
 <div>
     <svg class="speedGraph" width="200" height="50">
-        <g class="speedBar" ng-repeat="fuel in fleet.fuelUse track by $index">
-            <rect width="20" ng-attr-height="{{fuel}}" ng-attr-x="{{$index * 20}}" ng-attr-y="{{50 - fuel}}"></rect>
+        <g class="speedBar" ng-class="{selected: fleet.selectedSpeed == $index+1}" ng-repeat="fuel in fleet.fuelUse track by $index">
+            <rect ng-click="setSpeed($index+1)" width="20" ng-attr-height="{{fuel}}" ng-attr-x="{{$index * 20}}" ng-attr-y="{{50 - fuel}}"></rect>
         </g>
     </svg>
 </div>

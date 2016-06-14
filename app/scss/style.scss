@@ -11,5 +11,8 @@
 .speedBar:hover {
   fill: yellow;
 }
+.speedBar.selected {
+  fill: orange;
+}
 
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

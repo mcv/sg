@@ -5,6 +5,10 @@ angular.module("spacegame")
                 fleet: '='
             },
             link: function (scope, element, attrs) {
+                scope.setSpeed = function(speed) {
+                    console.log("setSpeed ",speed);
+                    scope.fleet.selectedSpeed = speed;
+                }
                 console.log("fleet: ", scope.fleet);
 
             },
