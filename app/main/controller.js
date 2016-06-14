@@ -45,17 +45,21 @@ angular.module('spacegame')
         $scope.fleetsOrder = $scope.fleetsOrderOptions[0].value;
 
         $scope.selectPlanet = function (planet) {
-            planet.planet = true; // hack to let object know what it is
-            $scope.selection.planet = planet;
-            $scope.selection.prev = $scope.selection.current;
-            $scope.selection.current = planet;
+            if ($scope.mode != "addWaypoint") {
+                planet.planet = true; // hack to let object know what it is
+                $scope.selection.planet = planet;
+                $scope.selection.prev = $scope.selection.current;
+                $scope.selection.current = planet;
+            }
         };
 
         $scope.selectFleet = function (fleet) {
-            fleet.fleet = true; // hack to let object know what it is
-            $scope.selection.fleet = fleet;
-            $scope.selection.prev = $scope.selection.current;
-            $scope.selection.current = fleet;
+            if(!$scope.selection.fleet) {
+                fleet.fleet = true; // hack to let object know what it is
+                $scope.selection.fleet = fleet;
+                $scope.selection.prev = $scope.selection.current;
+                $scope.selection.current = fleet;
+            }
         };
 
         $scope.addWaypoint = function (coords) {
