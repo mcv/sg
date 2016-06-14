@@ -21,7 +21,7 @@
       {"x": 280, "y": 250, "speed": 9},
       {"x": 325, "y": 199, "speed": 4}
     ],
-    "feulUsagePerUnitOfSpeed": {"1": 2, "2": 3, "3": 5, "4": 8, "5":13}
+    "fuelUsagePerUnitOfSpeed": {"1": 2, "2": 3, "3": 5, "4": 8, "5":13}
   },
   {
     "id": 3,
@@ -34,7 +34,7 @@
       {"x": 220, "y": 123, "speed": 5},
       {"x": 345, "y": 99, "speed": 6}
     ],
-    "feulUsagePerUnitOfSpeed": {"1": 40, "2": 50, "3": 57, "4": 68, "5":79}
+    "fuelUsagePerUnitOfSpeed": {"1": 40, "2": 50, "3": 57, "4": 68, "5":79}
   },
   {
     "id": 4,
