@@ -54,7 +54,7 @@ angular.module('spacegame')
         };
 
         $scope.selectFleet = function (fleet) {
-            if(!$scope.selection.fleet) {
+            if($scope.mode != 'addWaypoint') {
                 fleet.fleet = true; // hack to let object know what it is
                 $scope.selection.fleet = fleet;
                 $scope.selection.prev = $scope.selection.current;
