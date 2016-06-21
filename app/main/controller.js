@@ -63,15 +63,20 @@ angular.module('spacegame')
         };
 
         $scope.addWaypoint = function (coords) {
-            if ($scope.mode == "addWaypoint" && $scope.selection.current.fleet) {
+            if ($scope.mode === "addWaypoint" && $scope.selection.current.fleet) {
                 if ($scope.selection.current.waypoints === null || $scope.selection.current.waypoints === undefined) {
-                    $scope.selection.current.waypoints = []
+                    $scope.selection.current.waypoints = [];
+                }
+
+                var speed = $scope.selection.current.selectedSpeed;
+                if (!speed) {
+                    speed = 5;
                 }
 
                 $scope.selection.current.waypoints.push({
                     x: coords.x,
                     y: coords.y,
-                    speed: 5
+                    speed: speed
                 });
             }
         };
