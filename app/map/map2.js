@@ -1,11 +1,18 @@
+'use strict';
+
+require('../app.js');
+require('../fleet/fleetMode.js');
+require('../fleet/fleetController.js');
+
+
 angular.module('spacegame')
-    .directive("sgMap2", [function () {
+    .directive("sgMap2", ['fleetMode', function (fleetMode) {
         return {
             restrict: 'AE',
             templateUrl: "map/map2.html",
 
-            controller: function ($scope) {
-
+            controller: "fleetController",
+            link: function ($scope, iElement, iAttrs, controller, transcludeFn) {
                 $scope.mapconfig = {
                     fleetcolour: "#fff",
                     planetcolour: "#0ff",
@@ -17,8 +24,6 @@ angular.module('spacegame')
 
                 $scope.cfg = $scope.mapconfig;
 
-            },
-            link: function ($scope, iElement, iAttrs, controller, transcludeFn) {
                 $scope.drawFleetShape = function (fleet) {
                     var fleetShape = 'M' + fleet.x + ',' + fleet.y + 'L' + (fleet.x - 5) + ',' + fleet.y + ',L' + fleet.x + ',' + (fleet.y + 10) + 'L' + (fleet.x + 5) + ',' + fleet.y + 'Z';
 
@@ -48,8 +53,9 @@ angular.module('spacegame')
                     return deg;
                 };
 
-                $scope.$watch('mode', function (mode, oldmode) {
-                    if (mode == 'addWaypoint') {
+                $scope.$watch(fleetMode.mode, function (mode, oldmode) {
+                    console.log("watch: ",mode);
+                    if (mode === 'addWaypoint') {
                         iElement.on('mousemove', function ($event) {
                             $scope.mousecoords.x = $event.offsetX;
                             $scope.mousecoords.y = $event.offsetY;
@@ -58,11 +64,11 @@ angular.module('spacegame')
 
                         iElement.on("click", function (event) {
                             $scope.addWaypoint({x: event.offsetX, y: event.offsetY});
-                            $scope.setMode(oldmode);
+                            fleetMode.mode(oldmode);
                             $scope.$apply();
                         });
                     }
-                    else if (oldmode == 'addWaypoint') {
+                    else if (oldmode === 'addWaypoint') {
                         iElement.off("mousemove click");
                     }
                 });
