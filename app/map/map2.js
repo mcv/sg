@@ -54,7 +54,6 @@ angular.module('spacegame')
                 };
 
                 $scope.$watch(fleetMode.mode, function (mode, oldmode) {
-                    console.log("watch: ",mode);
                     if (mode === 'addWaypoint') {
                         iElement.on('mousemove', function ($event) {
                             $scope.mousecoords.x = $event.offsetX;

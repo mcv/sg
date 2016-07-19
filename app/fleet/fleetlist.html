@@ -15,7 +15,7 @@ fleet-detail.html<div id="fleets">
     <th>destination</th>
     </thead>
     <tbody>
-    <tr ng-repeat="fleet in fleets | filter:query | orderBy:fleetsOrder" ng-click="console.log('click');selectFleet(fleet);">
+    <tr ng-repeat="fleet in fleets | filter:query | orderBy:fleetsOrder" ng-click="selectFleet(fleet);">
       <td>{{fleet.id}}</td>
       <td>{{fleet.name}}</td>
       <td>( {{fleet.x}}, {{fleet.y}} )</td>

@@ -23,7 +23,7 @@
     <th>labs</th>
     </thead>
     <tbody>
-    <tr ng-repeat="planet in planets | filter:query | orderBy:planetsOrder" ng-click="console.log('click');selectPlanet(planet);">
+    <tr ng-repeat="planet in planets | filter:query | orderBy:planetsOrder" ng-click="selectPlanet(planet);">
       <td>{{planet.id}}</td>
       <td>{{planet.name}}</td>
       <td>( {{planet.x}}, {{planet.y}} )</td>
